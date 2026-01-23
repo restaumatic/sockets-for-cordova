@@ -76,10 +76,9 @@
     NSString* socketKey = [command.arguments objectAtIndex:0];
     NSArray *data = [command.arguments objectAtIndex:1];
     
-    SocketAdapter *socket = [self getSocketAdapter:socketKey];
-    
 	[self.commandDelegate runInBackground:^{
         @try {
+            SocketAdapter *socket = [self getSocketAdapter:socketKey];
             [socket write:data];
             [self.commandDelegate
              sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK]
@@ -96,11 +95,10 @@
 - (void) shutdownWrite:(CDVInvokedUrlCommand *) command {
     
     NSString* socketKey = [command.arguments objectAtIndex:0];
-	
-	SocketAdapter *socket = [self getSocketAdapter:socketKey];
-    
+
     [self.commandDelegate runInBackground:^{
         @try {
+	        SocketAdapter *socket = [self getSocketAdapter:socketKey];
             [socket shutdownWrite];
             [self.commandDelegate
             sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK]
@@ -117,11 +115,10 @@
 - (void) close:(CDVInvokedUrlCommand *) command {
     
     NSString* socketKey = [command.arguments objectAtIndex:0];
-	
-	SocketAdapter *socket = [self getSocketAdapter:socketKey];
-    
+
     [self.commandDelegate runInBackground:^{
         @try {
+	        SocketAdapter *socket = [self getSocketAdapter:socketKey];
             [socket close];
             [self.commandDelegate
              sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK]
