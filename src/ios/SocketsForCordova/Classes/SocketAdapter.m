@@ -4,14 +4,6 @@
 #include <math.h>
 #import "SocketAdapter.h"
 
-CFReadStreamRef readStream;
-CFWriteStreamRef writeStream;
-
-NSInputStream *inputStream;
-NSOutputStream *outputStream;
-
-BOOL wasOpenned = FALSE;
-
 int const WRITE_BUFFER_SIZE = 10 * 1024;
 
 @implementation SocketAdapter
